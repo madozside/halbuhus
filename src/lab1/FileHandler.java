@@ -1,16 +1,24 @@
-
+/**
+ * Carroll University
+ * CSC341-A-SP2019
+ * Hassan Albuhussain
+ * Lab 1 - To Do List App
+ */
 
 package lab1;
 
 
-import javax.swing.JOptionPane;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * The main file handler and list operator
+ * @param <K> the key will always be the date
+ * @param <V> the value is the list input
+ */
 public class FileHandler<K extends Comparable<? super K>, V> {
     public HashMap<String, String> todoList;
     private File file;
@@ -66,7 +74,6 @@ public class FileHandler<K extends Comparable<? super K>, V> {
         } catch (IOException e) {
             System.err.println("File Not Found");
         }
-        System.out.println(todoList);
     }
 
     /**

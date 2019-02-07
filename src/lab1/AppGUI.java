@@ -1,3 +1,11 @@
+/**
+ * Carroll University
+ * CSC341-A-SP2019
+ * Hassan Albuhussain
+ * Lab 1 - To Do List App
+ */
+
+
 package lab1;
 
 import javax.swing.*;
@@ -8,6 +16,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.Set;
 
+/**
+ * Main app using GUI
+ */
 public class AppGUI extends JPanel {
 
 
@@ -21,16 +32,15 @@ public class AppGUI extends JPanel {
 
 
         //File handler to deal with the data inputs from the given file
-        fileInput = new FileHandler(userFile+".txt");
+        fileInput = new FileHandler(userFile + ".txt");
         fileInput.start();
         dropdownList();
 
         //Dropdown list that contains all the dates were list the given file
 
 
-
         JPanel datePanel = new JPanel();
-        JLabel dateFormat = new JLabel("Please note that the date format should be: MM/dd/YYYY");
+        JLabel dateFormat = new JLabel("Please note that the date format should be: dd/MM/YYYY");
         dateFormat.setForeground(Color.lightGray);
         JLabel dateLabel = new JLabel("Enter a date:");
         JTextField date = new JTextField(10);
@@ -85,7 +95,7 @@ public class AppGUI extends JPanel {
                 String userInput = date.getText();
                 DateChecker dateChecker = new DateChecker(userInput);
                 String textInput = textUpdates.getText();
-                fileInput.todoList.put(userInput, textInput);
+                fileInput.todoList.put(userInput, textInput.replace("\n"," | "));
                 datesDropList.addItem(date.getText());
 
 
@@ -94,7 +104,7 @@ public class AppGUI extends JPanel {
 
         ActionListener infoAction = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null,"Created by Hassan Albuhussain\n" +
+                JOptionPane.showMessageDialog(null, "Created by Hassan Albuhussain\n" +
                         "Carroll University 2019\n" +
                         "halbuhus@pio.carrollu.edu");
             }
@@ -132,7 +142,11 @@ public class AppGUI extends JPanel {
 
 
     }
-    private static void dropdownList(){
+
+    /**
+     * A method to handle the drop list in the GUI
+     */
+    private static void dropdownList() {
         String[] datesList = new String[fileInput.todoList.size()];
         int i = 0;
         Set<String> set = fileInput.todoList.keySet();

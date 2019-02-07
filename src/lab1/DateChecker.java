@@ -1,7 +1,18 @@
+/**
+ * Carroll University
+ * CSC341-A-SP2019
+ * Hassan Albuhussain
+ * Lab 1 - To Do List App
+ */
+
+
 package lab1;
 
 import javax.swing.*;
 
+/**
+ * A date format checker to make sure the key value is always in date format
+ */
 public class DateChecker {
 
     private static final String ValidPattern =
@@ -10,11 +21,12 @@ public class DateChecker {
 
     /**
      * Check if the given date will match the correct format
+     *
      * @param userDate the given date
      */
     public DateChecker(String userDate) {
         if (!userDate.matches(ValidPattern)) {
-            JOptionPane.showMessageDialog(null,userDate+" is a wrong input!","ERROR",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, userDate + " is a wrong input!", "ERROR", JOptionPane.ERROR_MESSAGE);
             throw new IllegalArgumentException("Wrong Date");
         }
         newDate = userDate;
@@ -24,7 +36,6 @@ public class DateChecker {
     public String toString() {
         return newDate;
     }
-
 
 
 }
