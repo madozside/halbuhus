@@ -3,7 +3,7 @@
 package lab1;
 
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -39,10 +39,7 @@ public class FileHandler<K extends Comparable<? super K>, V> {
 
             LocalDate convertedCurrentTime = LocalDate.now();
             String currentDate = DateTimeFormatter.ofPattern("dd/MM/yyyy").format(convertedCurrentTime);
-            System.out.println(currentDate);
-            JOptionPane.showMessageDialog(null,"File not found, we will create one for you!","WOOO!",JOptionPane.INFORMATION_MESSAGE);
             todoList.put(currentDate,"Created new todo list!");
-            JOptionPane.showMessageDialog(null,"Your first TODO list has been created","Nice!",JOptionPane.INFORMATION_MESSAGE);
         }
         readFile(file);
         return true;
